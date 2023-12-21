@@ -3,7 +3,6 @@ from flask import Flask, render_template, request, redirect, url_for, flash
 import openai
 import os
 from dotenv import dotenv_values
-from flask import send_file
 import pandas as pd
 from flask import jsonify
 
@@ -37,26 +36,32 @@ def get_completion_response():
 def process_file_and_get_response():
     try:
         # Check if the request includes a file
-        if 'file' in request.files:
-            # File is present, process it
+        if 'file' not in request.files:
             uploaded_file = request.files['file']
+            if uploaded_file.filename == '':
+                return 'No selected file'
+            user_input = request.args.get('user_input')
+            # Process the file content
             processed_content = process_file_content(uploaded_file)
+            # Get response from the function
+            response = get_response_from_aoai(user_input, processed_content)
         else:
             # No file present, use the user input directly
             user_input = request.args.get('userinput')
+            response = get_response_from_aoai(user_input)
             processed_content = user_input
 
         # Generate OpenAI response based on processed content
         response = get_response_from_aoai(processed_content)
-
+        print("AOAI Response: ", response)
         return jsonify({
             'processed_content': processed_content,
             'openai_response': response
         })
-
     except Exception as e:
         print("An exception has occurred:", str(e))
         return jsonify({'message': 'An error occurred while processing the request.'}), 500
+
 
 
 def process_file_content(file):
