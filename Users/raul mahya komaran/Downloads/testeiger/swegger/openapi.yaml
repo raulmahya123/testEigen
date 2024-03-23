@@ -1,0 +1,174 @@
+openapi: 3.0.3
+info:
+  title: DOKUMEN API SALON E-LEARNING - OpenAPI 3.0
+  description: >-
+    Jelaskan disini apa saja yang perlu dijelaskan
+    termasuk informasi yang diperlukan untuk dinilai
+    term of service isi dari link repo dari swagger ini
+  termsOfService: https://www.linkedin.com/in/raulmahya/
+  contact:
+    email: raulmahya11@gmail.com
+  version: 1.0.11 
+servers:
+  - url: http://localhost:8090/api
+paths:
+  /pinjam/members/{idmember}/books/{idbooks}/return:
+    put:
+      tags:
+        - PINJAM
+      summary: Return Book
+      description: Return Book
+      operationId: Return Book
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StringArray'
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StringArray'
+        '405':
+          description: Invalid input
+  /pinjam/members/{idmember}/books/{idbooks}/borrow:
+    post:
+      tags:
+        - PINJAM
+      summary: Borrow Book
+      description:  Borrow Book
+      operationId:  Borrow Book
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StringArray'
+        '405':
+          description: Invalid input
+  /pinjam/books:
+    get:
+      tags:
+        - PINJAM
+      summary: Get All Books
+      description: Get All Books
+      operationId: Get All Books
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/StringArray'
+        '400':
+          description: Invalid input or request body
+  /pinjam/members:
+    get:
+      tags:
+        - PINJAM
+      summary: Get All Members
+      description: Get All Members
+      operationId: Get All Members
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/StringArray'
+        '400':
+          description: Invalid input or request body
+  /members/findcall:
+    get:
+      tags:
+        - MEMBER
+      summary: Get  Members
+      description: Get  Members
+      operationId: Get  Members
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/StringArray'
+        '400':
+          description: Invalid input or request body
+  /books/findall:
+    get:
+      tags:
+        - BOOKS
+      summary: Get  BOOKS
+      description: Get  BOOKS
+      operationId: Get  BOOKS
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/StringArray'
+        '400':
+          description: Invalid input or request body          
+components:
+  schemas: 
+    GetToken:
+      type: object
+      required:
+        - status
+        - data
+        - message
+      properties:
+        status:
+          type: boolean
+          description: status
+        data:
+          type: object
+          description: data
+        message:
+          type: string
+          description: message
+    UserArray:
+      description: List of user object
+      content:
+        application/json:
+          schema:
+            type: array
+    Auth:
+      type: object
+      required:
+        - username
+        - password
+      properties:
+        username:
+          type: string
+          format: username
+          description: username
+        password:
+          type: string
+          format: password
+          description: password
+    StringArray:
+      description: List of string
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              type: string
+  securitySchemes:
+    token:
+      type: apiKey
+      name: token
+      in: header
