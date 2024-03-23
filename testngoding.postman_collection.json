@@ -1,0 +1,416 @@
+{
+	"info": {
+		"_postman_id": "a888158a-272c-4b36-9459-a2dd0f3fa93d",
+		"name": "testngoding",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23896798",
+		"_collection_link": "https://www.postman.com/interstellar-crescent-246765/workspace/fancy/collection/23896798-a888158a-272c-4b36-9459-a2dd0f3fa93d?action=share&source=collection_link&creator=23896798"
+	},
+	"item": [
+		{
+			"name": "pinjam",
+			"item": [
+				{
+					"name": "kembali buku",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "localhost:8090/api/pinjam/members/65fc6b0c0b199b9dbdd882cd/books/65fd251b876344b56c8a19a0/return",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"api",
+								"pinjam",
+								"members",
+								"65fc6b0c0b199b9dbdd882cd",
+								"books",
+								"65fd251b876344b56c8a19a0",
+								"return"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "pinjam buku",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8090/api/pinjam/members/65fc6b0c0b199b9dbdd882cd/books/65fc6a710b199b9dbdd882c3/borrow",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"api",
+								"pinjam",
+								"members",
+								"65fc6b0c0b199b9dbdd882cd",
+								"books",
+								"65fc6a710b199b9dbdd882c3",
+								"borrow"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all buku",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8090/api/pinjam/books",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"api",
+								"pinjam",
+								"books"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all members",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8090/api/pinjam/members",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"api",
+								"pinjam",
+								"members"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "members",
+			"item": [
+				{
+					"name": "create members",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"code\": \"M001\",\r\n        \"name\": \"Angga\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8090/api/members/create",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"api",
+								"members",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"code\": \"M001\",\r\n        \"name\": \"Angga\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8090/api/members/65fd906e9ef3f5c765fd30c9",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"api",
+								"members",
+								"65fd906e9ef3f5c765fd30c9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"code\": \"M001\",\r\n        \"name\": \"Angga\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8090/api/members/findcall",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"api",
+								"members",
+								"findcall"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "by id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"code\": \"M001\",\r\n        \"name\": \"Angga\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8090/api/members/65fc3623251190522db9b0a0",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"api",
+								"members",
+								"65fc3623251190522db9b0a0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ubah",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"code\": \"M002\",\r\n        \"name\": \"Angga\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8090/api/members/65fc3623251190522db9b0a0",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"api",
+								"members",
+								"65fc3623251190522db9b0a0"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "books",
+			"item": [
+				{
+					"name": "create books",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"code\": \"JK-45\",\r\n  \"title\": \"Harry Potter\",\r\n  \"author\": \"J.K Rowling\",\r\n  \"stock\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8090/api/books/create",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"api",
+								"books",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"code\": \"M001\",\r\n        \"name\": \"Angga\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8090/api/books/65fd949d9ef3f5c765fd30cd",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"api",
+								"books",
+								"65fd949d9ef3f5c765fd30cd"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"code\": \"M001\",\r\n        \"name\": \"Angga\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8090/api/books/findall",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"api",
+								"books",
+								"findall"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "by id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"code\": \"M001\",\r\n        \"name\": \"Angga\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8090/api/books/65fd949d9ef3f5c765fd30cd",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"api",
+								"books",
+								"65fd949d9ef3f5c765fd30cd"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ubah",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"code\": \"JK-45\",\r\n  \"title\": \"Harry Potter\",\r\n  \"author\": \"J.K Rowling\",\r\n  \"stock\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8090/api/books/65fc6a710b199b9dbdd882c3",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"api",
+								"books",
+								"65fc6a710b199b9dbdd882c3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
